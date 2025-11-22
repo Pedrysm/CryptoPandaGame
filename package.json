@@ -1,3 +1,16 @@
-"scripts": {
-  "start": "serve -s web"
+{
+  "name": "cryptopanda-web",
+  "version": "1.0.0",
+  "description": "CryptoPanda Tap2Earn WebApp",
+  "private": true,
+  "scripts": {
+    "start": "serve -s web"
+  },
+  "dependencies": {
+    "serve": "^14.2.5"
+  },
+  "keywords": [],
+  "author": "Pedro",
+  "license": "MIT"
 }
+
