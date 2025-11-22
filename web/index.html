@@ -6,34 +6,50 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button class="music-toggle" onclick="toggleMusic()">🔊</button>
-
-  <div class="container">
-    <h1>CryptoPanda</h1>
-
-    <img src="panda.jpeg" alt="CryptoPanda" class="panda">
-    <div id="coin-container"></div>
-
-    <div class="balance">
-      💰 <span id="coin-count">80</span> $PANDA
-    </div>
-
-    <div class="energy-bar">
-      <div class="fill"></div>
-      <span>⚡ 5000 / 5000</span>
-    </div>
-
-    <div class="buttons">
-      <button onclick="jugar()">🎮 Jugar</button>
-      <button onclick="referidos()">👥 Referidos</button>
-    </div>
+  <!-- Splash screen -->
+  <div id="splash">
+    <img src="portada.jpg" alt="CryptoPanda portada" />
   </div>
 
-  <!-- Audios -->
-  <audio id="tap-sound" src="tap.mp3" preload="auto"></audio>
-  <audio id="coin-sound" src="coin.mp3" preload="auto"></audio>
-  <audio id="bg-music" src="musica.mp3" autoplay loop></audio>
+  <!-- Contenido del juego -->
+  <div id="game" style="display: none;">
+    <button class="music-toggle" onclick="toggleMusic()">🔊</button>
 
+    <div class="container">
+      <h1>CryptoPanda</h1>
+
+      <img src="panda.jpeg" alt="CryptoPanda" class="panda">
+      <div id="coin-container"></div>
+
+      <div class="balance">
+        💰 <span id="coin-count">80</span> $PANDA
+      </div>
+
+      <div class="energy-bar">
+        <div class="fill"></div>
+        <span>⚡ 5000 / 5000</span>
+      </div>
+
+      <div class="buttons">
+        <button onclick="jugar()">🎮 Jugar</button>
+        <button onclick="referidos()">👥 Referidos</button>
+      </div>
+    </div>
+
+    <!-- Audios -->
+    <audio id="tap-sound" src="tap.mp3" preload="auto"></audio>
+    <audio id="coin-sound" src="coin.mp3" preload="auto"></audio>
+    <audio id="bg-music" src="musica.mp3" autoplay loop></audio>
+  </div>
+
+  <script>
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("splash").style.display = "none";
+        document.getElementById("game").style.display = "block";
+      }, 5000); // 5 segundos
+    });
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
