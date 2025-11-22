@@ -3,23 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>CryptoPanda</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
   <!-- Splash screen -->
   <div id="splash">
     <img src="portada.jpg" alt="CryptoPanda portada" />
-    <div class="loading-indicator">
-      <div class="progress-bar">
-        <div class="progress-fill"></div>
-      </div>
-      <button disabled id="loading-text">Loading...</button>
+    <div class="start-overlay">
+      <h1 class="splash-title">CryptoPanda</h1>
+      <button id="start-button" onclick="iniciarJuego()">Start Game</button>
     </div>
-  </div>
-
-  <!-- Botón Start Game -->
-  <div id="start-game" style="display: none;">
-    <button onclick="iniciarJuego()">Start Game</button>
   </div>
 
   <!-- Contenido del juego -->
@@ -53,27 +46,6 @@
     <audio id="bg-music" src="musica.mp3" autoplay loop></audio>
   </div>
 
-  <!-- Script de carga -->
-  <script>
-    let progress = 0;
-    const fill = document.querySelector('.progress-fill');
-
-    const interval = setInterval(() => {
-      progress += 1;
-      fill.style.width = progress + '%';
-      if (progress >= 100) {
-        clearInterval(interval);
-        document.getElementById("splash").style.display = "none";
-        document.getElementById("start-game").style.display = "block";
-      }
-    }, 50); // 5 segundos total
-
-    function iniciarJuego() {
-      document.getElementById("start-game").style.display = "none";
-      document.getElementById("game").style.display = "block";
-    }
-  </script>
-
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>
