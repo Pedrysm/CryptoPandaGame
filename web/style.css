@@ -5,98 +5,164 @@
 }
 
 body {
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background: linear-gradient(to bottom, #1e1e2f, #2c2c3f);
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
   color: white;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+  overflow-x: hidden;
 }
 
 .container {
-  text-align: center;
+  max-width: 400px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
   padding: 20px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.header h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-  text-shadow: 0 0 20px #ffd700;
-}
-
-.coins {
-  font-size: 2em;
-  font-weight: bold;
-  color: #ffd700;
-  text-shadow: 0 0 15px gold;
-}
-
-.panda {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: float 6s infinite ease-in-out;
-}
-
-#pandaImg {
-  width: 300px;
-  height: 300px;
-  cursor: pointer;
-  transition: transform 0.1s;
-  user-select: none;
-  border-radius: 50%;
-  box-shadow: 0 0 30px #fff;
-}
-
-#pandaImg:active {
-  transform: scale(0.9);
-}
-
-.energy-bar {
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 50px;
-  padding: 15px;
-  margin: 20px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
   position: relative;
 }
 
-.energy-fill {
-  height: 30px;
-  width: 100%;
-  background: linear-gradient(90deg, #ff00ff, #00ffff);
-  border-radius: 50px;
-  transition: width 0.3s ease;
+h1 {
+  font-size: 2.2em;
+  margin-bottom: 15px;
+  color: #ffd700;
+  text-shadow: 0 0 10px #ffd70088;
 }
 
-#energyText {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-weight: bold;
-  font-size: 1.2em;
-}
-
-.bottom-menu button {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  padding: 18px;
-  margin: 8px;
+.panda {
+  width: 180px;
   border-radius: 20px;
-  font-size: 1em;
-  color: white;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+  animation: float 3s ease-in-out infinite;
+  transition: transform 0.2s ease;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
-.bottom-menu button:hover {
-  background: rgba(255, 255, 255, 0.4);
+.panda:active {
+  animation: blink 0.2s ease, pulse 0.3s ease;
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.balance {
+  font-size: 24px;
+  margin: 15px 0;
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700aa;
+}
+
+.energy-bar {
+  background: #444;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin: 15px 0;
+  height: 30px;
+  box-shadow: inset 0 0 10px #000;
+}
+
+.energy-bar .fill {
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  width: 100%;
+  height: 100%;
+  animation: energyPulse 2s infinite ease-in-out;
+}
+
+@keyframes energyPulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+
+.energy-bar span {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  line-height: 30px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 5px #000;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.buttons button {
+  background: #ffd700;
+  color: #1e1e2f;
+  border: none;
+  padding: 12px 24px;
+  margin: 10px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.buttons button:hover {
+  background: #ffec8b;
+  transform: scale(1.05);
+}
+
+.buttons button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.9);
+}
+
+.music-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #ffd700;
+  cursor: pointer;
+  text-shadow: 0 0 10px #ffd700aa;
+}
+
+#coin-container {
+  position: relative;
+  height: 0;
+  overflow: visible;
+}
+
+.coin-float {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  animation: floatCoin 1s ease-out forwards;
+  pointer-events: none;
+  color: #ffd700;
+  text-shadow: 0 0 5px #fff, 0 0 10px #ffd700;
+}
+
+@keyframes floatCoin {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -100px) scale(1.5);
+  }
 }

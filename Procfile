@@ -1,1 +1,1 @@
-web: npx serve -s web -l $PORT
+web: python main.py
